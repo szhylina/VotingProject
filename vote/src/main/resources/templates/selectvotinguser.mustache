@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>VotingApp</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div style="width: 100%; height: 55px;font-size: 15pt;background-color: #339999; text-align: center">
+    	<a style="color: white; margin:5%" href="/result">RESULTS</a>
+    	<a style="color: white; margin:5%" href="/">HOME</a>
+    	<form action="/logout" method="post">
+    		<input type="submit" value="Sign Out"/>
+    		<input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+    	</form>
+	</div>
+    <div style="width: 100%; height: 55px;font-size: 15pt; text-align: center">
+		<form action="/voting">
+			 <div><b>Please select Voting</b></div>
+			 {{#votings}}
+				 <div>
+				 	<u><input type="radio" name="voting" value="{{id}}" style="margin-top: 10px" />{{title}}</u>
+				 </div>
+			 {{/votings}}
+			 <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+			 <button type="submit" style="font-size: 15pt">Select Voting</button>
+		</form>
+	</div>
+</body>
+</html>
